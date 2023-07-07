@@ -8,3 +8,7 @@
     line-height: normal;
     border-radius: 0;
 }
+
+.logo_wrapper{
+    cursor: pointer;
+}
