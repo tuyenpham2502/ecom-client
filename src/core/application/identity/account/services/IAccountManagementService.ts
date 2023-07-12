@@ -6,6 +6,7 @@ import { SignInWithPasswordRequest } from "src/core/application/dto/identity/acc
 import { RequestResponse } from "src/core/application/dto/common/responses/RequestResponse";
 import { SignInWithOAuthRequest } from "src/core/application/dto/identity/account/requests/SignInWithOAuthRequest";
 import { GetUserByRoleRequest } from "src/core/application/dto/identity/account/requests/GetUserByRoleRequest";
+import { LogOutRequest } from "src/core/application/dto/identity/account/requests/LogOutRequest";
 
 export interface IAccountManagementService {
     /**
@@ -19,7 +20,7 @@ export interface IAccountManagementService {
      * @param query
      * @param variables
      */
-     logoutAsync(query: RequestDocument, cookie: Cookie, variable: Variables): Promise<RequestResponse>
+     logoutAsync(query: RequestDocument, cookie: Cookie, variable: LogOutRequest): Promise<RequestResponse>
 
     /**
      * Sign with OAuth

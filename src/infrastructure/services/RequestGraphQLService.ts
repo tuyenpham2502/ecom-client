@@ -63,6 +63,7 @@ export default class RequestGraphQLService implements IRequestGraphQLService {
         //const setIsLoading = useSetRecoilState(LoadingState);
         try {
             const _url = `${this.baseURL}`;
+            console.log(_url);
             if (isSetRecoil) {
                 await setRecoilStateAsync(LoadingState, { isLoading: true, uri: _url });
             }

@@ -1,9 +1,11 @@
-import {gql} from "graphql-request"
+import { gql } from "graphql-request";
 
 export const signInWithEmail = gql`
-mutation LoginUser($input: LoginInput!) {
-  loginUser(input: $input) {
-        acc
+  mutation LoginWithEmail($email: String!, $password: String!) {
+    loginWithEmail(input: { email: $email, password: $password }) {
+      status
+      refreshToken
+      token
+    }
   }
-}  
-`
+`;

@@ -8,12 +8,16 @@ import {
   BoldText,
   NormalText,
 } from "src/infrastructure/common/components/controls/text";
-const SignIn = () => {
+import { loginWithEmailEffect } from "src/infrastructure/identity/account/effects/SignInWithEmailEffect";
+import Router from "next/router";
+import LoggerService from "src/infrastructure/services/LoggerService";
+const SignIn = (context) => {
+  const loggerService = new LoggerService();
+
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
-
   const onChangeEmail = (e) => {
     setUser({
       ...user,
@@ -28,10 +32,25 @@ const SignIn = () => {
     });
   };
 
+  const onSubmit = (e) => {
+    loginWithEmailEffect(
+      user.email,
+      user.password,
+      Router,
+      loggerService,
+      context.user
+    );
+  };
+
   return (
     <Grid container className={styles.sign_in_wrapper}>
       <Grid item xs={6} className={styles.sign_in_form_wrapper}>
-        <Grid container className={styles.sign_in_form} direction={"column"} alignItems={"center"}>
+        <Grid
+          container
+          className={styles.sign_in_form}
+          direction={"column"}
+          alignItems={"center"}
+        >
           <Grid item xs={12} className={styles.sign_in_form_title}>
             <NormalText className={styles.welcome_text}>
               Welcome Back !!!
@@ -39,8 +58,8 @@ const SignIn = () => {
             <BoldText variant="h3" className={styles.sign_in_form_title_text}>
               Sign In
             </BoldText>
-            <Grid container direction={"column"} spacing={2} >
-              <Grid item >
+            <Grid container direction={"column"} spacing={2}>
+              <Grid item>
                 <TextField
                   className={styles.sign_in_input}
                   label="Email"
@@ -60,10 +79,16 @@ const SignIn = () => {
                 />
               </Grid>
               <Grid item className={styles.sign_in_btn}>
-                <Button variant="contained" sx={{borderRadius:"23px"}} color="primary" endIcon ={<Image src={iconSignInBtn} alt="icon"/>}>
-                    Sign In
+                <Button
+                  variant="contained"
+                  sx={{ borderRadius: "23px" }}
+                  color="primary"
+                  endIcon={<Image src={iconSignInBtn} alt="icon" />}
+                  onClick={onSubmit}
+                >
+                  Sign In
                 </Button>
-                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
@@ -74,4 +99,5 @@ const SignIn = () => {
     </Grid>
   );
 };
+
 export default SignIn;

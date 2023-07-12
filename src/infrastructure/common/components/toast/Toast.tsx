@@ -1,9 +1,9 @@
+import { Alert, IconButton, Snackbar } from '@mui/material';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Snackbar, IconButton } from '@material-ui';
-import CloseIcon from '@material-ui/icons/Close';
+import CloseIcon from '@mui/icons-material/Close';
 
-const showToast = (message) => {
+const showToast = (severity,message) => {
   const container = document.createElement('div');
   document.body.appendChild(container);
 
@@ -21,13 +21,14 @@ const showToast = (message) => {
       open={true}
       autoHideDuration={3000}
       onClose={handleClose}
-      message={message}
       action={
         <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
           <CloseIcon fontSize="small" />
         </IconButton>
       }
-    />,
+    >
+      <Alert severity={severity}>{message}</Alert>
+    </Snackbar>,
     container
   );
 };
