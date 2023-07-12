@@ -9,7 +9,6 @@ import { NormalButton } from "src/infrastructure/common/components/controls/butt
 export default function Home(context) {
   return (
     <>
-      <MainLayout context={context}>
        <div className={styles.header_image}>
           <div className={styles.header_image_banner}>
             <NormalText className={styles.new_arrival}>New Arrival</NormalText>
@@ -24,7 +23,6 @@ export default function Home(context) {
        <div>
         
        </div>
-        </MainLayout>
     </>
   );
 }

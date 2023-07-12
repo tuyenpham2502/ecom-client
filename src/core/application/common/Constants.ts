@@ -7,9 +7,11 @@ const PoppinsFont = Poppins({
     });
 
 
-export class Constant {
+export default class Constants {
 
-    
+     static Logger = class {
+        static DateTimeFormat = 'yyyy-MM-DD HH:mm:ss.SSSS';
+    };
 
     static PoppinsTheme = createTheme({
         typography: {

@@ -13,10 +13,10 @@ import { PageKeys } from "src/core/application/common/domain/enums/MenuKeys";
 import Router from "next/router";
 
 
-const Header = (context) => {
-   
+const Header = ({userContext, defaultSelectedKeys}) => {
+   console.log("Header",userContext, defaultSelectedKeys);
     const selectKey = (selectKey) => {
-        if(context?.context.defaultSelectedKeys === selectKey){
+        if(defaultSelectedKeys === selectKey){
             return {
                 borderBottom: "1px solid #000"
             }

@@ -4,9 +4,7 @@ import MainLayout from "src/infrastructure/common/layout/MainLayout";
 
 export default function Contact (context) {
     return (
-        <MainLayout context={context}>
             <div>Contact</div>
-        </MainLayout>
     )
 }
 

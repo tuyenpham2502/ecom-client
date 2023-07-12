@@ -3,14 +3,13 @@ import Header from "src/infrastructure/common/layout/Header";
 import Footer from "src/infrastructure/common/layout/Footer";
 import Content from "src/infrastructure/common/layout/Content";
 import { Box } from "@mui/material";
-const MainLayout = ({context, ...props}:any) => {
-    console.log("MainLayout",context);
+const MainLayout = ({user, defaultSelectedKeys, ...props}:any) => {
     return (
         <Box sx={{
             height:"100vh",
         }}>
-            <Header context={context}/>
-            <Content context={context}>
+            <Header defaultSelectedKeys={defaultSelectedKeys} userContext={user || {}}/>
+            <Content userContex={user || {}}>
                {props.children}
             </Content>
             <Footer/>
