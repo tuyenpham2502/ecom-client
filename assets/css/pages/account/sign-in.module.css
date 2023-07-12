@@ -1,0 +1,36 @@
+.sign_in_wrapper{
+    /* height: 100vh; */
+}
+
+.sign_in_form_wrapper{
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+}
+
+.sign_in_form_wrapper .welcome_text{
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.sign_in_form_title{
+    min-width: 400px;
+}
+
+.sign_in_form_wrapper .sign_in_form_title_text{
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.sign_in_form_wrapper .sign_in_input{
+    width: 100%;
+}
+
+
+.sign_in_banner {
+    background: linear-gradient(90deg, #fff 35%, #FFEDE1 0%);
+}
+
+.sign_in_btn{
+    display: flex;
+    justify-content: center;
+}

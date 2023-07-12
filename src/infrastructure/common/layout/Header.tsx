@@ -1,6 +1,6 @@
 import React from "react";
 import Image from 'next/image'
-import { Box, Button, Grid, Toolbar, Typography } from "@mui/material";
+import { Box, Button, Grid, IconButton, Toolbar, Typography } from "@mui/material";
 import AppBar from '@mui/material/AppBar';
 import styles from "assets/css/common/layout/header.module.css"
 import Logo from "assets/images/logo.png"
@@ -74,16 +74,24 @@ const Header = ({userContext, defaultSelectedKeys}) => {
                     <div>
                         <Grid container spacing={8}>
                             <Grid item xs={4} sm={4} md={3}>
-                                <Image src={IconAccount} alt="icon-account" />
+                                <IconButton className={styles.icon_button} aria-label="account" href="/account/sign-in.html">
+                                    <Image src={IconAccount} alt="icon-account" />
+                                </IconButton>
                             </Grid>
                             <Grid item xs={4} sm={4} md={3}>
+                                <IconButton className={styles.icon_button} aria-label="search">
                                 <Image src={IconSearch} alt="icon-search" />
+                                </IconButton>
                             </Grid>
                             <Grid item xs={4} sm={4} md={3}>
+                                <IconButton className={styles.icon_button} aria-label="heart">
                                 <Image src={IconHeart} alt="icon-heart" />
+                                </IconButton>
                             </Grid>
                             <Grid item xs={4} sm={4} md={3}>
+                                <IconButton className={styles.icon_button} aria-label="cart">
                                 <Image src={IconCart} alt="icon-cart" />
+                                </IconButton>
                             </Grid>
                         </Grid>
                     </div>
